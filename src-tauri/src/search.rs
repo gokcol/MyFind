@@ -387,4 +387,74 @@ mod tests {
         });
         assert!(done);
     }
+    #[test]
+    fn overlapping_roots_are_deduplicated() {
+        let d = tempfile::tempdir().unwrap();
+        std::fs::create_dir(d.path().join("child")).unwrap();
+        std::fs::write(d.path().join("child/a.txt"), "hello").unwrap();
+        let mut q = query(d.path().to_string_lossy().into());
+        q.roots
+            .push(d.path().join("child").to_string_lossy().into());
+        q.rules = vec![Rule {
+            field: "kind".into(),
+            op: "equals".into(),
+            value: "file".into(),
+        }];
+        let mut total = 0;
+        run(q, Arc::new(AtomicBool::new(false)), |v| {
+            if v["type"] == "done" {
+                total = v["count"].as_u64().unwrap();
+            }
+        });
+        assert_eq!(total, 1);
+    }
+    #[test]
+    fn wildcard_size_and_unknown_dates() {
+        let f = FileEntry {
+            name: "Report.PDF".into(),
+            path: "/Report.PDF".into(),
+            extension: "pdf".into(),
+            kind: "file".into(),
+            size: 2000,
+            modified: 1000,
+            created: None,
+            accessed: None,
+        };
+        assert!(matches(
+            &f,
+            &Rule {
+                field: "name".into(),
+                op: "glob".into(),
+                value: "*.pdf".into()
+            },
+            false
+        ));
+        assert!(!matches(
+            &f,
+            &Rule {
+                field: "name".into(),
+                op: "glob".into(),
+                value: "*.pdf".into()
+            },
+            true
+        ));
+        assert!(matches(
+            &f,
+            &Rule {
+                field: "size".into(),
+                op: "greater".into(),
+                value: "1000".into()
+            },
+            false
+        ));
+        assert!(!matches(
+            &f,
+            &Rule {
+                field: "created".into(),
+                op: "before".into(),
+                value: "2000".into()
+            },
+            false
+        ));
+    }
 }
