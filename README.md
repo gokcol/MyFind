@@ -1,4 +1,4 @@
-# MyFind 0.1
+# MyFind 0.1.1
 
 A local desktop file finder for macOS, Windows, and Linux. Built with Rust, Tauri 2, React, and TypeScript.
 

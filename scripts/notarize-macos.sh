@@ -4,7 +4,8 @@ set -euo pipefail
 identity=${MYFIND_SIGN_IDENTITY:?Set Developer ID identity}
 profile=${MYFIND_NOTARY_PROFILE:?Set existing notarytool keychain profile}
 app=src-tauri/target/release/bundle/macos/MyFind.app
-out=artifacts/macos
+version=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$app/Contents/Info.plist")
+out="artifacts/macos-$version"
 mkdir -p "$out"
 codesign --force --deep --options runtime --timestamp --sign "$identity" "$app"
 codesign --verify --deep --strict --verbose=2 "$app"
@@ -14,4 +15,4 @@ python3 -c 'import json,sys; r=json.load(open(sys.argv[1])); print(r); sys.exit(
 xcrun stapler staple "$app"
 xcrun stapler validate "$app"
 spctl --assess --type execute --verbose=2 "$app"
-ditto -c -k --keepParent "$app" "$out/MyFind-0.1.0-macos-arm64.zip"
+ditto -c -k --keepParent "$app" "$out/MyFind-$version-macos-arm64.zip"
