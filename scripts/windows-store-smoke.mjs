@@ -26,7 +26,12 @@ try {
     catch { await delay(500); }
   }
   assert.ok(browser, 'Packaged app must start WebView2');
-  const page = browser.contexts().flatMap(c => c.pages()).find(p => /tauri\.localhost|tauri:/.test(p.url()));
+  let page;
+  for (let i = 0; i < 100; i++) {
+    page = browser.contexts().flatMap(c => c.pages()).find(p => /tauri\.localhost|tauri:/.test(p.url()));
+    if (page) break;
+    await delay(500);
+  }
   assert.ok(page, 'Native Tauri application page');
   await page.waitForLoadState('domcontentloaded');
   assert.ok(await page.evaluate(() => Boolean(window.__TAURI_INTERNALS__)), 'Native IPC');
