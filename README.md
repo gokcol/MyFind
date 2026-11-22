@@ -1,4 +1,8 @@
-# MyFind 0.1.1
+# Calico Sleuth 0.1.2
+
+**File & Content Search**
+
+Formerly MyFind. Version 0.1.2 introduces the Calico Sleuth name and branding. Content search is planned; the current app searches file names and metadata.
 
 A local desktop file finder for macOS, Windows, and Linux. Built with Rust, Tauri 2, React, and TypeScript.
 
@@ -36,7 +40,7 @@ GitHub Actions builds Windows NSIS installers and Linux AppImages/deb packages. 
 
 ## 0.1 boundaries
 
-This is a first usable release, not full Find Any File feature parity. It does not yet support content search, nested Boolean groups, Finder tags/comments, Windows ACL/attribute filters, previews, native drag-out, or a persistent MyFind index. Hidden exclusion covers dot-prefixed paths; Windows hidden/system flags are not yet handled. Case-insensitive matching uses Unicode lowercase, not locale-specific Turkish casing. Creation/access times may be unavailable or filesystem-dependent. Directory size is its own metadata size, not recursive contents. Results are capped at 50,000 and the status reports the cap. Windows binaries are unsigned; Linux packages are built in CI. Saved searches retain locations and rules; search options are session settings.
+This is a first usable release, not full Find Any File feature parity. It does not yet support content search, nested Boolean groups, Finder tags/comments, Windows ACL/attribute filters, previews, native drag-out, or a persistent Calico Sleuth index. Hidden exclusion covers dot-prefixed paths; Windows hidden/system flags are not yet handled. Case-insensitive matching uses Unicode lowercase, not locale-specific Turkish casing. Creation/access times may be unavailable or filesystem-dependent. Directory size is its own metadata size, not recursive contents. Results are capped at 50,000 and the status reports the cap. Windows binaries are unsigned; Linux packages are built in CI. Saved searches retain locations and rules; search options are session settings.
 
 ## Contributing
 

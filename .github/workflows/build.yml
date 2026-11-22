@@ -31,9 +31,29 @@ jobs:
       - run: npm run build
       - run: cargo test --manifest-path src-tauri/Cargo.toml
       - run: npm run tauri build
+      - name: Package Microsoft Store MSIX
+        if: runner.os == 'Windows'
+        run: |
+          ./scripts/package-store-msix.ps1 -Executable src-tauri/target/release/myfind.exe
+          ./scripts/package-store-msix.ps1 -Executable src-tauri/target/release/myfind.exe -TestIdentity -OutputDirectory artifacts/store/test
+      - name: Test Microsoft Store package
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          npm install --prefix "$env:RUNNER_TEMP/calico-smoke" --no-save playwright@1.65.1
+          if ($LASTEXITCODE -ne 0) { throw 'Test dependency installation failed.' }
+          ./scripts/test-store-msix.ps1
+      - uses: actions/upload-artifact@v4
+        if: always() && runner.os == 'Windows'
+        with:
+          name: Calico-Sleuth-Store-x64
+          path: |
+            artifacts/store/packages/*
+            artifacts/store/reports/*
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
-          name: MyFind-${{ runner.os }}
+          name: Calico-Sleuth-${{ runner.os }}
           path: |
             src-tauri/target/release/bundle/nsis/*.exe
             src-tauri/target/release/bundle/deb/*.deb

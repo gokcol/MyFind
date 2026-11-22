@@ -1,6 +1,12 @@
-# Searching calico cat
+# Calico Sleuth
 
-The MyFind application icon is a calico cat looking through a magnifying glass. The source image is `assets/myfind-calico.png`, with transparent pixels outside the indigo tile. It was generated using the built-in image-generation tool, then converted by the Tauri icon generator to platform sizes. The original placeholder is archived as `assets/legacy-placeholder.svg`.
+Subtitle: **File & Content Search**.
+
+The name reflects the searching calico cat mascot and the planned expansion from metadata to file contents. Content search is not yet implemented.
+
+The existing bundle identifier and local storage keys remain stable so the branding change preserves application identity and saved searches. Historical release notes and the original image prompt retain the former name, MyFind.
+
+The Calico Sleuth application icon is a calico cat looking through a magnifying glass. The source image is `assets/myfind-calico.png`, with transparent pixels outside the indigo tile. It was generated using the built-in image-generation tool, then converted by the Tauri icon generator to platform sizes. The original placeholder is archived as `assets/legacy-placeholder.svg`.
 
 Regenerate native icons with `npm run tauri -- icon assets/myfind-calico.png`.
 
