@@ -27,4 +27,4 @@ The bundle identifier and saved-search/language-pack storage keys are unchanged.
 
 This is an early release, not full Find Any File parity. Content search, previews, nested Boolean groups, Finder tags, and Windows hidden/system attribute filters are not implemented. Searches respect OS permissions; index-only results may be incomplete. Results are capped at 50,000. The natural-language parser supports common patterns rather than arbitrary sentences.
 
-Microsoft Store distribution is being prepared separately; this release is distributed through GitHub.
+Microsoft Store submission was completed on 22 November 2026 and is awaiting certification. It is configured to publish automatically after approval. The [Store listing](https://apps.microsoft.com/detail/9P6GJDKZ9FDM) may not be available until publishing finishes. GitHub downloads are available now.

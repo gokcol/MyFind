@@ -16,6 +16,19 @@ Calico Sleuth uses the same unsigned MSIX submission approach as 7TXT and Bediz.
 
 The package uses standard MSIX virtualization. Store and direct-download installations may have separate local settings. No background task, startup registration, network service, or additional capability is requested.
 
+## Submission status — 22 November 2026
+
+Submission 1 (`1152921505702471578`) is **In certification**, with pre-processing underway. All submission sections are complete. Availability is free, public, and worldwide, with automatic publication after certification. The age rating is Everyone / 3+ where applicable. The listing includes two screenshots captured from the installed Windows package.
+
+- [Partner Center submission](https://partner.microsoft.com/en-us/dashboard/products/9P6GJDKZ9FDM/overview)
+- [Public Store listing, available after publishing](https://apps.microsoft.com/detail/9P6GJDKZ9FDM)
+- [GitHub 0.1.2 release](https://github.com/gokcol/MyFind/releases/tag/v0.1.2)
+- Verified release commit: `c79e363f001f69ecea5ca5dc223ca995dc6694a3`
+- [Windows and Linux verification](https://github.com/gokcol/MyFind/actions/runs/44990623448)
+- [Release-tag verification](https://github.com/gokcol/MyFind/actions/runs/44990913412)
+
+The packaged-app tests passed installation, activation, metadata search, common-language rule interpretation, Unicode filenames, CSV formula escaping, and uninstall. Windows Search was unavailable on the hosted runner; the test verified graceful completion with that warning, not indexed-result coverage. WACK reported an overall PASS, with an optional blocked-executable scan flag for process-launch references. The PowerShell index query and full-trust desktop operations are explained in the certification notes and capability justification. Microsoft's final certification remains pending.
+
 ## Listing copy
 
 **Short description:** Find files by name, type, size, and date with flexible rules and local search.
