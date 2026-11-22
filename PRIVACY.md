@@ -1,18 +1,18 @@
-# Calico Sleuth privacy policy
+# Tapp Find privacy policy
 
 Effective date: 22 November 2026
 
-Calico Sleuth (formerly MyFind) is a local file-search application developed by Orhan Gökçöl.
+Tapp Find (formerly MyFind and Calico Sleuth) is a local file-search application developed by Orhan Gökçöl.
 
 ## Files and searches
 
-The app reads file names, paths, sizes, types, and timestamps in locations you select. It can query the operating system's local search index. Search results are processed on your computer and are not sent to the developer. Version 0.1.2 does not search document contents.
+The app reads file names, paths, sizes, types, and timestamps in locations you select. It can query the operating system's local search index. Search results are processed on your computer and are not sent to the developer. Version 0.1.3 does not search document contents.
 
 Saved searches, selected paths in those searches, and imported language packs are stored locally. You can remove saved searches in the app. CSV exports are written only to the destination you choose and may contain file names and paths; you control whether to share them.
 
 ## Accounts and data collection
 
-Calico Sleuth requires no account and includes no advertising, analytics, tracking, or developer-operated cloud service. The app does not collect or transmit your searches, results, or documents to the developer.
+Tapp Find requires no account and includes no advertising, analytics, tracking, or developer-operated cloud service. The app does not collect or transmit your searches, results, or documents to the developer.
 
 Windows, Microsoft Store, and the Microsoft Edge WebView2 runtime may process installation, update, or diagnostic information under their own settings and privacy policies. GitHub also has its own privacy policy for repository visits, downloads, and issue reports.
 

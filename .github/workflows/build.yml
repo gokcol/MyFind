@@ -46,14 +46,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always() && runner.os == 'Windows'
         with:
-          name: Calico-Sleuth-Store-x64
+          name: Tapp-Find-Store-x64
           path: |
             artifacts/store/packages/*
             artifacts/store/reports/*
           if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
-          name: Calico-Sleuth-${{ runner.os }}
+          name: Tapp-Find-${{ runner.os }}
           path: |
             src-tauri/target/release/bundle/nsis/*.exe
             src-tauri/target/release/bundle/deb/*.deb

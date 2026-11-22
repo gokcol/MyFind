@@ -4,7 +4,7 @@ param(
     [switch]$TestIdentity,
     [string]$OutputDirectory = 'artifacts/store/packages'
 )
-$App = 'Calico-Sleuth'
+$App = 'Tapp-Find'
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $repo = Split-Path $PSScriptRoot -Parent
@@ -13,8 +13,8 @@ if (!$product) { throw 'Missing assigned Partner Center product identity.' }
 $name = $product.identityName; $publisher = $product.publisher; $display = $product.displayName
 $publisherDisplay = $product.publisherDisplayName; $version = $product.packageVersion
 if ($TestIdentity) {
-    $name = "CalicoSleuth.PackagingTest"; $publisher = 'CN=Calico Sleuth Packaging Test'
-    $display = "$App Packaging Test"; $publisherDisplay = 'Calico Sleuth packaging tests'
+    $name = "CalicoSleuth.PackagingTest"; $publisher = 'CN=Tapp Find Packaging Test'
+    $display = "$App Packaging Test"; $publisherDisplay = 'Tapp Find packaging tests'
 } elseif ("$name $publisher $display" -match '(?i)placeholder|packaging[ .-]?test|replace[_ -]?me') { throw 'Test identities cannot be submitted to the Store.' }
 if ($name -notmatch '^[A-Za-z0-9.-]{3,50}$' -or !$publisher.StartsWith('CN=')) { throw 'Invalid package identity.' }
 $null = [System.Security.Cryptography.X509Certificates.X500DistinguishedName]::new($publisher)
@@ -26,7 +26,7 @@ try {
     $reader.BaseStream.Position = 0x3c; $offset = $reader.ReadUInt32(); $reader.BaseStream.Position = $offset
     if ($reader.ReadUInt32() -ne 0x4550 -or $reader.ReadUInt16() -ne 0x8664) { throw 'An x64 executable is required.' }
 } finally { $reader.Dispose() }
-if ((Get-Item $exe).VersionInfo.ProductVersion -notlike '0.1.2*') { throw 'Expected released application version 0.1.2.' }
+if ((Get-Item $exe).VersionInfo.ProductVersion -notlike '0.1.3*') { throw 'Expected released application version 0.1.3.' }
 $sdk = Get-ChildItem "${env:ProgramFiles(x86)}/Windows Kits/10/bin" -Directory | Where-Object {
     $_.Name -match '^10\.0\.\d+\.\d+$' -and (Test-Path (Join-Path $_.FullName 'x64/makeappx.exe'))
 } | Sort-Object { [version]$_.Name } -Descending | Select-Object -First 1
@@ -81,8 +81,8 @@ try {
     $hash = (Get-FileHash $package -Algorithm SHA256).Hash.ToLowerInvariant()
     "$hash  $([IO.Path]::GetFileName($package))" | Set-Content "$package.sha256" -Encoding ascii
     [ordered]@{ app=$App; applicationId=$appId; identityMode=$flavor; name=$name; publisher=$publisher; displayName=$display
-        publisherDisplayName=$publisherDisplay; version=$version; appVersion='0.1.2'; architecture='x64'; minimumWindowsVersion='10.0.22000.0'
-        sourceReference='v0.1.2'; packagingCommit=(& git rev-parse HEAD); binarySha256=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+        publisherDisplayName=$publisherDisplay; version=$version; appVersion='0.1.3'; architecture='x64'; minimumWindowsVersion='10.0.22000.0'
+        sourceReference='v0.1.3'; packagingCommit=(& git rev-parse HEAD); binarySha256=(Get-FileHash $exe -Algorithm SHA256).Hash.ToLowerInvariant()
         sha256=$hash; signed=$false; webviewRuntime='Windows 11 system Evergreen WebView2'; vcRuntimeFramework=$vcRuntime; sdk=$sdk.Name
     } | ConvertTo-Json | Set-Content "$package.json" -Encoding utf8
     Write-Host "Verified unsigned $flavor package: $package"

@@ -10,7 +10,7 @@ assert.equal(process.env.GITHUB_ACTIONS, 'true');
 const [modulePath, activation, output] = process.argv.slice(2);
 const { chromium } = await import(pathToFileURL(resolve(modulePath)).href);
 await mkdir(output, { recursive: true });
-const fixture = join(process.env.RUNNER_TEMP, 'Calico Sleuth sample files');
+const fixture = join(process.env.RUNNER_TEMP, 'Tapp Find sample files');
 await mkdir(fixture, { recursive: true });
 for (const name of ['Project notes.txt', 'Meeting notes.txt', 'Araştırma notları.txt', 'Annual report.pdf', 'Travel itinerary.pdf', 'Budget.csv']) {
   await writeFile(join(fixture, name), 'Synthetic metadata-search fixture.\n');
@@ -41,7 +41,7 @@ try {
   await page.getByRole('combobox', {name:'Search mode'}).selectOption('thorough');
   await page.getByRole('button', {name:'Search', exact:true}).click();
   await page.getByRole('status').filter({hasText:'Finished · 6 matches'}).waitFor();
-  await page.locator('.brand-name').filter({hasText:'Calico Sleuth'}).waitFor();
+  await page.locator('.brand-name').filter({hasText:'Tapp Find'}).waitFor();
   await page.getByText('File & Content Search', {exact:true}).waitFor();
   await page.getByRole('button', {name:/Annual report.pdf/}).click();
   await page.screenshot({path:join(output, '01-file-search.png')});

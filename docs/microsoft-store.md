@@ -1,20 +1,22 @@
 # Microsoft Store release
 
-Calico Sleuth uses the same unsigned MSIX submission approach as 7TXT and Bediz. Microsoft signs the package after certification. The unsigned MSIX is for Partner Center upload, not a direct-download installer.
+Tapp Find uses the same unsigned MSIX submission approach as 7TXT and Bediz. Microsoft signs the package after certification. The unsigned MSIX is for Partner Center upload, not a direct-download installer.
 
-- Reserved name: Calico Sleuth
+- Reserved name: Tapp Find
 - Store ID: 9P6GJDKZ9FDM
 - Identity: OrhanGkl.CalicoSleuth
 - Publisher: CN=A9F0208B-CC43-472D-AE82-9FE4556DC935
 - Publisher display name: Orhan Gökçöl
-- Application version: 0.1.2
-- Store package version: 1.0.2.0 (independent four-part version with nonzero major and zero revision)
+- Application version: 0.1.3
+- Store package version: 1.0.3.0 (independent four-part version with nonzero major and zero revision)
 - Target: Windows 11 x64, using its system Evergreen WebView2 runtime
 - Capability: runFullTrust, required for the native desktop filesystem search and Windows Search integration
 - Privacy URL: https://github.com/gokcol/Tapp/blob/main/PRIVACY.md
 - Support URL: https://github.com/gokcol/Tapp/issues
 
 The package uses standard MSIX virtualization. Store and direct-download installations may have separate local settings. No background task, startup registration, network service, or additional capability is requested.
+
+Tapp Find was reserved for this existing product on 22 November 2026. The package identity and Store ID are retained from Calico Sleuth. Version 0.1.3 uses the new display name; the original submission status below records version 0.1.2.
 
 ## Submission status — 22 November 2026
 
@@ -35,7 +37,7 @@ The packaged-app tests passed installation, activation, metadata search, common-
 
 **Description:**
 
-Calico Sleuth helps you track down files with a curious calico cat at your side.
+Tapp Find helps you track down files with a curious calico cat at your side.
 
 Choose folders, describe a common search in plain language, review the interpreted rules, and search. Filter by file name, path, extension, kind, size, and creation, modification, or access date. Combine rules with ALL or ANY and use wildcards or regular expressions.
 
@@ -45,7 +47,7 @@ Common search phrases are supported in English, German, French, Spanish, and Tur
 
 Your files and searches stay on your device. No account, advertising, analytics, or subscription is required.
 
-Version 0.1.2 is an early release. "File & Content Search" is our product subtitle; searching inside documents is planned and is not available yet. Current searches use file names and metadata. Natural-language support covers common patterns, not arbitrary sentences. Results are capped at 50,000 and index-only coverage may be incomplete.
+Version 0.1.3 is an early release. "File & Content Search" is our product subtitle; searching inside documents is planned and is not available yet. Current searches use file names and metadata. Natural-language support covers common patterns, not arbitrary sentences. Results are capped at 50,000 and index-only coverage may be incomplete.
 
 ## Certification notes
 

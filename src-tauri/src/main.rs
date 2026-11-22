@@ -75,5 +75,5 @@ fn main() {
             }
         })
         .run(tauri::generate_context!())
-        .expect("Unable to start Calico Sleuth");
+        .expect("Unable to start Tapp Find");
 }

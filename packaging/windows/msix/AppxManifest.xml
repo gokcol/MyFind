@@ -4,13 +4,13 @@
  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
  IgnorableNamespaces="uap uap10 rescap">
- <Identity Name="CalicoSleuth.Placeholder" Publisher="CN=Placeholder" Version="1.0.2.0" ProcessorArchitecture="x64" />
- <Properties><DisplayName>Calico Sleuth</DisplayName><PublisherDisplayName>Placeholder</PublisherDisplayName>
+ <Identity Name="CalicoSleuth.Placeholder" Publisher="CN=Placeholder" Version="1.0.3.0" ProcessorArchitecture="x64" />
+ <Properties><DisplayName>Tapp Find</DisplayName><PublisherDisplayName>Placeholder</PublisherDisplayName>
  <Description>Find files by name and metadata.</Description><Logo>Assets\StoreLogo.png</Logo></Properties>
  <Resources><Resource Language="en-US" /></Resources>
  <Dependencies><TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.22000.0" MaxVersionTested="10.0.26100.0" /></Dependencies>
  <Applications><Application Id="CalicoSleuth" Executable="myfind.exe" uap10:RuntimeBehavior="packagedClassicApp" uap10:TrustLevel="mediumIL">
- <uap:VisualElements DisplayName="Calico Sleuth" Description="Find files by name and metadata."
+ <uap:VisualElements DisplayName="Tapp Find" Description="Find files by name and metadata."
  Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" BackgroundColor="transparent" />
  </Application></Applications>
  <Capabilities><rescap:Capability Name="runFullTrust" /></Capabilities>
