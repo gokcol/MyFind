@@ -16,7 +16,7 @@ for (const name of ['Project notes.txt', 'Meeting notes.txt', 'Araştırma notla
   await writeFile(join(fixture, name), 'Synthetic metadata-search fixture.\n');
 }
 const delay = ms => new Promise(r => setTimeout(r, ms));
-let browser, pid;
+let browser, pid, page;
 try {
   const launched = await promisify(execFile)('powershell.exe', ['-NoProfile', '-File', resolve('scripts/activate-store-app.ps1'), '-ApplicationId', activation]);
   pid = Number(launched.stdout.trim());
@@ -26,7 +26,6 @@ try {
     catch { await delay(500); }
   }
   assert.ok(browser, 'Packaged app must start WebView2');
-  let page;
   for (let i = 0; i < 100; i++) {
     page = browser.contexts().flatMap(c => c.pages()).find(p => /tauri\.localhost|tauri:/.test(p.url()));
     if (page) break;
@@ -35,7 +34,7 @@ try {
   assert.ok(page, 'Native Tauri application page');
   await page.waitForLoadState('domcontentloaded');
   assert.ok(await page.evaluate(() => Boolean(window.__TAURI_INTERNALS__)), 'Native IPC');
-  await page.evaluate(root => localStorage.setItem('myfind-saved', JSON.stringify([{name:'Sample project', roots:[root], rules:[]}])), fixture);
+  await page.evaluate(root => localStorage.setItem('myfind-saved', JSON.stringify([{name:'Sample project', roots:[root], rules:[{field:'kind',op:'equals',value:'file'}]}])), fixture);
   await page.reload();
   await page.setViewportSize({width:1366, height:768});
   await page.getByRole('button', {name:'Sample project', exact:true}).click();
@@ -62,6 +61,12 @@ try {
   await page.getByRole('status').filter({hasText:'Finished'}).waitFor({timeout:45000});
   const indexStatus = await page.getByRole('status').innerText();
   await writeFile(join(output, 'native-smoke.json'), JSON.stringify({packagedActivation:true,metadataSearch:true,naturalLanguageRules:true,unicodeFileNames:true,csvFormulaEscaping:true,indexStatus},null,2));
+} catch (error) {
+  if (page) {
+    await page.screenshot({path:join(output, 'failure.png')}).catch(()=>{});
+    await writeFile(join(output, 'failure.txt'), await page.locator('body').innerText()).catch(()=>{});
+  }
+  throw error;
 } finally {
   await browser?.close().catch(()=>{});
   if(pid) await promisify(execFile)('taskkill',['/PID',String(pid),'/T','/F']).catch(()=>{});
