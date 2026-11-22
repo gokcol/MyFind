@@ -18,6 +18,6 @@ Windows, Microsoft Store, and the Microsoft Edge WebView2 runtime may process in
 
 ## Support
 
-Support requests are voluntary. If you create a public [GitHub issue](https://github.com/gokcol/MyFind/issues), its contents are public. Use synthetic file names and omit private paths, documents, and credentials.
+Support requests are voluntary. If you create a public [GitHub issue](https://github.com/gokcol/Tapp/issues), its contents are public. Use synthetic file names and omit private paths, documents, and credentials.
 
 Questions about this policy can be raised through the same project issue tracker without including personal information. Changes to this policy will be published in this repository with an updated effective date.

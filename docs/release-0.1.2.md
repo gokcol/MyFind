@@ -21,7 +21,7 @@ MyFind is now Calico Sleuth, with the same searching calico cat mascot. This rel
 - Linux x64: AppImage and Debian package built by GitHub Actions.
 - SHA256SUMS.txt contains checksums for all four packages.
 
-The bundle identifier and saved-search/language-pack storage keys are unchanged. The repository remains at [gokcol/MyFind](https://github.com/gokcol/MyFind).
+The bundle identifier and saved-search/language-pack storage keys are unchanged. The repository is now [gokcol/Tapp](https://github.com/gokcol/Tapp).
 
 ## Limitations
 

@@ -12,4 +12,4 @@ MyFind now has its own searching calico cat mascot: a curious orange, white, and
 - Windows x64: NSIS installer built by GitHub Actions; unsigned.
 - Linux x64: AppImage and Debian package built by GitHub Actions.
 
-Search functionality and known limitations are as documented in the [0.1.0 release](https://github.com/gokcol/MyFind/releases/tag/v0.1.0). All 12 automated tests pass locally. The native icon was inspected at small sizes; target-platform packages are built and tested in CI.
+Search functionality and known limitations are as documented in the [0.1.0 release](https://github.com/gokcol/Tapp/releases/tag/v0.1.0). All 12 automated tests pass locally. The native icon was inspected at small sizes; target-platform packages are built and tested in CI.
