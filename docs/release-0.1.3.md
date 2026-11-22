@@ -19,7 +19,7 @@ Repository: [gokcol/Tapp](https://github.com/gokcol/Tapp).
 
 ## Microsoft Store
 
-Tapp Find is reserved for the existing Microsoft Store product. The updated MSIX package is version 1.0.3.0. Store publication is subject to Microsoft's certification; GitHub downloads are available independently.
+Tapp Find 0.1.3 (MSIX 1.0.3.0) was submitted to Microsoft Store on 22 November 2026 with the updated name, listing, and Windows screenshots. It is in certification and will publish automatically after approval. GitHub downloads are available independently.
 
 ## Known limitations
 
