@@ -18,9 +18,9 @@ The package uses standard MSIX virtualization. Store and direct-download install
 
 Tapp Find was reserved for this existing product on 22 November 2026. The package identity and Store ID are retained from Calico Sleuth. Version 0.1.3 uses the new display name, listing text, and Windows screenshots.
 
-## Submission status — 22 November 2026
+## Submission status — 23 November 2026
 
-Submission 1 (`1152921505702471578`) was resubmitted with Tapp Find 0.1.3 (MSIX 1.0.3.0) and is **In certification**, with pre-processing underway. It replaces the pending Calico Sleuth 0.1.2 submission. All submission sections are complete. Availability is free, public, and worldwide, with automatic publication after certification. The age rating is Everyone / 3+ where applicable. The listing includes two screenshots captured from the installed Windows package.
+Submission 1 (`1152921505702471578`) was resubmitted on 23 November 2026 with Tapp Find 0.1.3 (MSIX 1.0.3.0) and is **In certification**, with pre-processing underway. It replaces the pending Calico Sleuth 0.1.2 submission. All submission sections are complete. Availability is free, public, and worldwide, with automatic publication after certification. The age rating is Everyone / 3+ where applicable. The listing includes two screenshots captured from the installed Windows package.
 
 - [Partner Center submission](https://partner.microsoft.com/en-us/dashboard/products/9P6GJDKZ9FDM/overview)
 - [Public Store listing, available after publishing](https://apps.microsoft.com/detail/9P6GJDKZ9FDM)
@@ -32,6 +32,10 @@ Submission 1 (`1152921505702471578`) was resubmitted with Tapp Find 0.1.3 (MSIX 
 The packaged-app tests passed installation, activation, metadata search, common-language rule interpretation, Unicode filenames, CSV formula escaping, and uninstall. Windows Search was unavailable on the hosted runner; the test verified graceful completion with that warning, not indexed-result coverage. WACK reported an overall PASS, with an optional blocked-executable scan flag for process-launch references. The PowerShell index query and full-trust desktop operations are explained in the certification notes and capability justification. Microsoft's final certification remains pending.
 
 ## Listing copy
+
+**Store keywords:** `file search`, `file finder`, `metadata`, `calico cat`.
+
+The 22 November review flagged only the `Windows Search` keyword under policy 10.1.3 (Search Terms), because it names another publisher's product. That keyword was removed and the listing resubmitted on 23 November. The package was unchanged. Do not reintroduce third-party product titles as Store keywords.
 
 **Short description:** Find files by name, type, size, and date with flexible rules and local search.
 
